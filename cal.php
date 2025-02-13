@@ -8,6 +8,8 @@ function displayHelp() {
     echo "  subtract - Mengurangi angka kedua dari angka pertama\n";
     echo "  multiply - Mengalikan dua angka\n";
     echo "  divide   - Membagi angka pertama dengan angka kedua\n";
+    echo "  modulus  - Menghitung sisa pembagian angka pertama dengan angka kedua\n";
+    echo "  power    - Menghitung angka pertama pangkat angka kedua\n";
     echo "Contoh: php calculator.php add 5 3\n";
 }
 
@@ -42,6 +44,18 @@ switch ($operation) {
             exit(1);
         }
         $result = $number1 / $number2;
+        echo "Hasil: $result\n";
+        break;
+    case 'modulus':
+        if ($number2 == 0) {
+            echo "Error: Pembagian dengan nol tidak diperbolehkan.\n";
+            exit(1);
+        }
+        $result = $number1 % $number2;
+        echo "Hasil: $result\n";
+        break;
+    case 'power':
+        $result = pow($number1, $number2);
         echo "Hasil: $result\n";
         break;
     default:
