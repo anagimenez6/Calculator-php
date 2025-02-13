@@ -1,5 +1,6 @@
 <?php
 
+// CALCULATOR PHP V.10
 // Function to display the help message
 function displayHelp() {
     echo "Usage: php calculator.php [operation] [arguments...]\n";
