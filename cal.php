@@ -1,51 +1,51 @@
 <?php
 
-// Function to display the help message
+// Fungsi untuk menampilkan pesan bantuan
 function displayHelp() {
-    echo "Usage: php calculator.php [operation] [number1] [number2]\n";
-    echo "Operations:\n";
-    echo "  add      - Add two numbers\n";
-    echo "  subtract - Subtract the second number from the first\n";
-    echo "  multiply - Multiply two numbers\n";
-    echo "  divide   - Divide the first number by the second\n";
-    echo "Example: php calculator.php add 5 3\n";
+    echo "Penggunaan: php calculator.php [operasi] [angka1] [angka2]\n";
+    echo "Operasi yang tersedia:\n";
+    echo "  add      - Menambahkan dua angka\n";
+    echo "  subtract - Mengurangi angka kedua dari angka pertama\n";
+    echo "  multiply - Mengalikan dua angka\n";
+    echo "  divide   - Membagi angka pertama dengan angka kedua\n";
+    echo "Contoh: php calculator.php add 5 3\n";
 }
 
-// Check if the correct number of arguments is provided
+// Periksa apakah jumlah argumen yang diberikan benar
 if ($argc != 4) {
     displayHelp();
     exit(1);
 }
 
-// Get the operation and numbers from the command line arguments
+// Ambil operasi dan angka dari argumen command line
 $operation = strtolower($argv[1]);
 $number1 = (float)$argv[2];
 $number2 = (float)$argv[3];
 
-// Perform the requested operation
+// Lakukan operasi yang diminta
 switch ($operation) {
     case 'add':
         $result = $number1 + $number2;
-        echo "Result: $result\n";
+        echo "Hasil: $result\n";
         break;
     case 'subtract':
         $result = $number1 - $number2;
-        echo "Result: $result\n";
+        echo "Hasil: $result\n";
         break;
     case 'multiply':
         $result = $number1 * $number2;
-        echo "Result: $result\n";
+        echo "Hasil: $result\n";
         break;
     case 'divide':
         if ($number2 == 0) {
-            echo "Error: Division by zero is not allowed.\n";
+            echo "Error: Pembagian dengan nol tidak diperbolehkan.\n";
             exit(1);
         }
         $result = $number1 / $number2;
-        echo "Result: $result\n";
+        echo "Hasil: $result\n";
         break;
     default:
-        echo "Error: Invalid operation.\n";
+        echo "Error: Operasi tidak valid.\n";
         displayHelp();
         exit(1);
 }
