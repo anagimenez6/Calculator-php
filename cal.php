@@ -45,6 +45,14 @@ function displayHelp() {
     echo "  php calculator.php cylinder_volume 3 5\n";
 }
 
+// Fungsi untuk mencatat log ke file
+function logCalculation($operation, $arguments, $result) {
+    $logFile = 'calculator.log';
+    $timestamp = date('Y-m-d H:i:s');
+    $logMessage = "[$timestamp] Operasi: $operation, Argumen: " . implode(", ", $arguments) . ", Hasil: $result\n";
+    file_put_contents($logFile, $logMessage, FILE_APPEND);
+}
+
 // Fungsi untuk menghitung faktorial
 function factorial($n) {
     if ($n < 0) {
@@ -464,5 +472,9 @@ if (is_array($result)) {
 } else {
     echo "Hasil: " . number_format($result, 4) . "\n";
 }
+
+// Catat log perhitungan
+$arguments = array_slice($argv, 2);
+logCalculation($operation, $arguments, $result);
 
 ?>
